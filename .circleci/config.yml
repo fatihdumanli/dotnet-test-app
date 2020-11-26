@@ -24,12 +24,6 @@ jobs:
       - run:
           name: "Build Application according to some given configuration"
           command: dotnet build --configuration Release
-  deploy:
-    description: Deploy the application
-    steps:
-      - run:
-        name: Execute bash script
-        command: ../publish.sh production
 
 workflows:
   build-and-test:
@@ -38,7 +32,6 @@ workflows:
       - build:
           requires:
             - test
-      - deploy
   
     
 
